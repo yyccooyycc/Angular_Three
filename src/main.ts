@@ -1,7 +1,16 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, Routes } from '@angular/router';
+import { AppComponent } from './app/app.component';
+import { CubeComponent } from './app/cube/cube.component';
 
-import { AppModule } from './app/app.module';
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'cube/page/1' },
+  { path: 'cube/page/1', component: CubeComponent },
+  { path: '**', redirectTo: 'cube/page/1' }
+];
 
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes)
+  ]
+});
