@@ -36,7 +36,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
   }
 
   private loader = new THREE.TextureLoader();
-  private geometry = new THREE.BoxGeometry(10, 10, 10);
+  private geometry = new THREE.BoxGeometry(4, 4, 4);
   private material = new THREE.MeshBasicMaterial({
     map: this.loader.load(this.texture),
   });
